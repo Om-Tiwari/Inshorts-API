@@ -14,7 +14,7 @@ def news():
 
 @app.route('/')
 def home():
-    return ("""<h1>News API</h1>
+    return ("""<h1>GLE News API</h1>
            <p>Use /news?category=category_name to get news</p>
            <p>Categories: all, national, education,business, sports, world, politics, technology, startup, entertainment, miscellaneous, hatke, science, automobile</p>
            <p>Example: <a href='/news?category=education'>/news?category=education</a></p>
