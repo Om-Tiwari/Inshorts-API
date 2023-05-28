@@ -1,9 +1,8 @@
 {
-    "build": {
-      "env": {
-        "FLASK_APP": "gunicorn.py"
-      },
-      "command": "gunicorn -b :$PORT gunicorn:app"
-    }
+  "build": {
+    "env": {
+      "FLASK_APP": "gunicorn.py"
+    },
+    "command": "gunicorn -b :$PORT gunicorn:app"
   }
-  
+}
