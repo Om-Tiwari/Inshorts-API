@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 from scraper import getNews
 from flask_cors import CORS
+from gevent.pywsgi import WSGIServer
 
 app = Flask(__name__)
 CORS(app)
@@ -21,4 +22,5 @@ def home():
            <p>Developed by: <a href="https://www.linkedin.com/in/mrsus/">Om Tiwari</a></p>""")
 
 
-app.run(debug=False, port="3000")
+http_server = WSGIServer(('', 5000), app)
+http_server.serve_forever()
