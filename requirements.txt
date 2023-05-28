@@ -16,4 +16,3 @@ six==1.16.0
 soupsieve==2.4.1
 urllib3==2.0.2
 Werkzeug==2.3.4
-OpenSSL==1.1.1
