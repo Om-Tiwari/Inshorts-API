@@ -1,16 +1,24 @@
 from flask import Flask, request, jsonify
-from inshorts import getNews
+from scraper import getNews
 from flask_cors import CORS
 
 app = Flask(__name__)
 CORS(app)
 
-@app.route('/news', methods=['GET', 'POST'])
-def news():
-    if request.method == 'POST':
-        return jsonify(getNews(request.form['category']))
-    elif request.method == 'GET':
-        return jsonify(getNews(request.args.get('category')))
 
-app.run(debug=False)
-        
+@app.route('/news', methods=['GET'])
+def news():
+    return jsonify(getNews(request.args.get('category')))
+
+
+@app.route('/')
+def home():
+    return ("""<h1>News API</h1>
+           <p>Use /news?category=category_name to get news</p>
+           <p>Categories: all, national, education,business, sports, world, politics, technology, startup, entertainment, miscellaneous, hatke, science, automobile</p>
+           <p>Example: <a href='/news?category=education'>/news?category=education</a></p>
+           <p>Source: https://inshorts.com/</p>
+           <p>Developed by: <a href="https://www.linkedin.com/in/mrsus/">Om Tiwari</a></p>""")
+
+
+app.run(debug=True)
