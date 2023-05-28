@@ -21,4 +21,4 @@ def home():
            <p>Developed by: <a href="https://www.linkedin.com/in/mrsus/">Om Tiwari</a></p>""")
 
 
-app.run(debug=False)
+app.run(debug=False, port="3000")
